@@ -209,14 +209,18 @@
       position: relative; overflow: hidden;
       background: var(--volcanic);
     }
-    .hero-bg {
-      position: absolute; inset: 0;
+    .hero-video {
+      position: absolute; inset: 0; width: 100%; height: 100%;
+      object-fit: cover; object-position: center;
+      z-index: 0;
+    }
+    .hero-overlay {
+      position: absolute; inset: 0; z-index: 1;
       background:
         linear-gradient(170deg,
-          rgba(26, 21, 18, 0.7) 0%,
-          rgba(26, 21, 18, 0.25) 35%,
-          rgba(17, 25, 32, 0.6) 100%),
-        url('hero-bg.webp') center/cover no-repeat;
+          rgba(26, 21, 18, 0.72) 0%,
+          rgba(26, 21, 18, 0.3) 35%,
+          rgba(17, 25, 32, 0.65) 100%);
     }
     .hero-edge { position: absolute; bottom: -1px; left: 0; right: 0; z-index: 3; }
     .hero-edge svg { display: block; width: 100%; height: 80px; }
@@ -577,7 +581,11 @@
 
   <!-- ============ HERO — DARK CINEMATIC ============ -->
   <header class="hero" id="home">
-    <div class="hero-bg"></div>
+    <!-- REPLACE: swap hero-video.mp4 with your actual video file -->
+    <video class="hero-video" autoplay muted loop playsinline poster="hero-bg.webp">
+      <source src="hero-video.mp4" type="video/mp4">
+    </video>
+    <div class="hero-overlay"></div>
     <div class="container">
       <div class="hero-content">
         <div class="hero-tag">
