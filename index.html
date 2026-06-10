@@ -101,16 +101,16 @@
     /* HERO */
     .hero { min-height: 100vh; display: flex; align-items: center; position: relative; overflow: hidden; background: var(--volcanic); }
     .hero-video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center; z-index: 0; }
-    .hero-overlay { position: absolute; inset: 0; z-index: 1; background: linear-gradient(170deg, rgba(26,21,18,0.72) 0%, rgba(26,21,18,0.3) 35%, rgba(17,25,32,0.65) 100%); }
+    .hero-overlay { position: absolute; inset: 0; z-index: 1; background: linear-gradient(110deg, rgba(26,21,18,0.82) 0%, rgba(26,21,18,0.5) 45%, rgba(17,25,32,0.55) 100%), linear-gradient(180deg, rgba(26,21,18,0.5) 0%, transparent 30%, rgba(17,25,32,0.6) 100%); }
     .hero-edge { position: absolute; bottom: -1px; left: 0; right: 0; z-index: 3; }
     .hero-edge svg { display: block; width: 100%; height: 80px; }
-    .hero-content { position: relative; z-index: 2; max-width: 680px; padding: 6rem 0 4rem; }
+    .hero-content { position: relative; z-index: 2; max-width: 860px; padding: 6rem 0 4rem; }
     .hero-tag { display: inline-flex; align-items: center; gap: 0.5rem; background: rgba(192,133,69,0.12); border: 1px solid rgba(192,133,69,0.25); padding: 0.4rem 0.9rem; border-radius: 50px; margin-bottom: 2rem; opacity: 0; animation: fadeIn 0.8s var(--ease-out) 0.3s forwards; }
     .hero-tag-dot { width: 6px; height: 6px; background: var(--koa); border-radius: 50%; }
     .hero-tag span { font-size: 0.75rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--koa-glow); }
-    .hero h1 { font-size: clamp(2.75rem, 6vw, 4.25rem); line-height: 1.1; margin-bottom: 1.5rem; color: var(--linen); opacity: 0; animation: fadeUp 1s var(--ease-out) 0.5s forwards; }
+    .hero h1 { font-size: clamp(3.5rem, 9vw, 6.75rem); line-height: 1.02; margin-bottom: 1.75rem; color: var(--linen); text-shadow: 0 2px 40px rgba(0,0,0,0.45); opacity: 0; animation: fadeUp 1s var(--ease-out) 0.5s forwards; }
     .hero h1 em { font-style: italic; color: var(--koa-glow); }
-    .hero-desc { font-size: 1.1rem; color: var(--sand); font-weight: 300; line-height: 1.8; max-width: 540px; margin-bottom: 2.5rem; opacity: 0; animation: fadeUp 1s var(--ease-out) 0.7s forwards; }
+    .hero-desc { font-size: 1.25rem; color: var(--sand); font-weight: 300; line-height: 1.75; max-width: 580px; margin-bottom: 2.5rem; text-shadow: 0 1px 20px rgba(0,0,0,0.4); opacity: 0; animation: fadeUp 1s var(--ease-out) 0.7s forwards; }
     .hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; opacity: 0; animation: fadeUp 1s var(--ease-out) 0.9s forwards; }
 
     .btn { display: inline-flex; align-items: center; gap: 0.5rem; font-family: var(--font-body); font-size: 0.875rem; font-weight: 700; padding: 0.875rem 1.75rem; border-radius: var(--radius); transition: all 0.3s var(--ease-out); }
@@ -230,11 +230,13 @@
     .order-step.active { display: block; animation: fadeUp 0.5s var(--ease-out); }
 
     .order-step-title { font-family: var(--font-display); font-weight: 600; font-size: 1.5rem; color: var(--deep); margin-bottom: 0.5rem; text-align: center; }
+    .done-check { width: 64px; height: 64px; border-radius: 50%; background: rgba(192,133,69,0.12); border: 2px solid var(--koa); display: flex; align-items: center; justify-content: center; margin: 0 auto 1.25rem; animation: fadeUp 0.5s var(--ease-out); }
+    .done-check svg { width: 30px; height: 30px; color: var(--koa-deep); }
     .order-step-desc { color: var(--timber); font-weight: 300; font-size: 0.95rem; text-align: center; margin-bottom: 2rem; }
 
     /* Step 1: Menu picker cards */
     .menu-picker { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem; }
-    .menu-pick { background: var(--cream); border-radius: calc(var(--radius)*2); padding: 1.75rem; border: 2px solid transparent; cursor: pointer; transition: all 0.3s var(--ease-out); text-align: center; }
+    .menu-pick { background: var(--cream); border-radius: calc(var(--radius)*2); padding: 1.75rem; border: 2px solid transparent; cursor: pointer; transition: all 0.3s var(--ease-out); text-align: center; display: flex; flex-direction: column; justify-content: center; }
     .menu-pick:hover { border-color: rgba(192,133,69,0.2); transform: translateY(-2px); }
     .menu-pick.selected { border-color: var(--koa); box-shadow: 0 4px 20px rgba(192,133,69,0.12); }
     .menu-pick-icon { font-size: 1.75rem; margin-bottom: 0.75rem; }
@@ -325,10 +327,28 @@
     .preorder-note { text-align: center; font-size: 0.8rem; color: var(--drift); font-weight: 300; font-style: italic; margin-top: 1.25rem; }
 
     /* Dark section form fields */
-    .sausage .field input { background: rgba(250,248,245,0.05); border-color: rgba(250,248,245,0.1); color: var(--linen); }
+    .sausage .field input, .sausage .field select { background: rgba(250,248,245,0.05); border-color: rgba(250,248,245,0.1); color: var(--linen); }
     .sausage .field input::placeholder { color: rgba(250,248,245,0.3); }
-    .sausage .field input:focus { border-color: var(--koa); box-shadow: 0 0 0 3px rgba(192,133,69,0.15); }
+    .sausage .field input:focus, .sausage .field select:focus { border-color: var(--koa); box-shadow: 0 0 0 3px rgba(192,133,69,0.15); }
     .sausage .field label { color: var(--drift); }
+    .sausage .field select option { background: var(--night); color: var(--linen); }
+
+    /* Pastelle Sausage — reserve a batch */
+    .sausage-reserve { display: grid; grid-template-columns: 0.85fr 1fr; background: rgba(250,248,245,0.03); border: 1px solid rgba(192,133,69,0.18); border-radius: calc(var(--radius)*2); overflow: hidden; margin-bottom: 3rem; }
+    .sausage-reserve-info { padding: 2.75rem 2.5rem; background: linear-gradient(160deg, rgba(192,133,69,0.12) 0%, rgba(192,133,69,0.02) 100%); display: flex; flex-direction: column; justify-content: center; }
+    .sausage-reserve-info .spec-item-badge { align-self: flex-start; margin-bottom: 1.25rem; }
+    .sausage-reserve-info h3 { font-family: var(--font-display); font-size: 1.85rem; font-weight: 700; color: var(--linen); margin-bottom: 0.85rem; }
+    .sausage-reserve-info p { color: var(--drift); font-weight: 300; font-size: 0.95rem; line-height: 1.7; margin-bottom: 1.5rem; }
+    .sausage-price { font-size: 1.05rem; color: var(--sand); }
+    .sausage-price strong { font-family: var(--font-display); font-size: 1.75rem; font-weight: 700; color: var(--koa-glow); margin-right: 0.15rem; }
+    .sausage-price span { color: var(--drift); }
+    .sausage-reserve-form { padding: 2.5rem; }
+    .sausage-reserve-form h4 { font-family: var(--font-display); font-weight: 600; font-size: 1.25rem; color: var(--linen); margin-bottom: 1.25rem; }
+    .sausage-reserve-form .field { margin-bottom: 1rem; }
+    .sausage-reserve-form select, .sausage-reserve-form input { width: 100%; }
+    .sausage-total { background: rgba(192,133,69,0.08); border: 1px solid rgba(192,133,69,0.15); border-radius: var(--radius); padding: 0.8rem 1.1rem; margin: 0.5rem 0 1.25rem; font-size: 0.9rem; color: var(--sand); font-weight: 300; line-height: 1.5; }
+    .sausage-total strong { font-family: var(--font-display); font-size: 1.2rem; color: var(--koa-glow); font-weight: 700; }
+    .sausage-total span { color: var(--drift); font-size: 0.82rem; }
 
     /* LANDSCAPE BAND */
     .land-band { position: relative; width: 100%; height: 360px; overflow: hidden; }
@@ -366,6 +386,9 @@
       .spec-item { grid-template-columns: 1fr; }
       .spec-item-img { min-height: 160px; }
       .spec-item-info { padding: 1.5rem; }
+      .sausage-reserve { grid-template-columns: 1fr; }
+      .sausage-reserve-info { padding: 2rem; }
+      .sausage-reserve-form { padding: 2rem; }
       .menu-cards { grid-template-columns: repeat(2, 1fr); }
       .menu-picker { grid-template-columns: repeat(2, 1fr); }
       .nav-links { display: none; }
@@ -790,8 +813,8 @@
 
           <!-- Success -->
           <div class="order-step" id="stepDone" style="text-align:center;padding:3rem 0;">
-            
-            <div class="order-step-title">Order received!</div>
+            <div class="done-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg></div>
+            <div class="order-step-title">Inquiry sent!</div>
             <p style="color:var(--timber);font-weight:300;font-size:1.05rem;max-width:400px;margin:0.75rem auto 0;">We'll review your selections and get back to you within 24 hours with a quote. Mahalo for choosing Papa N Toots!</p>
           </div>
         </div>
@@ -807,60 +830,64 @@
     <div class="container">
       <div class="section-head center reveal">
         <span class="t-label" style="color:var(--koa-glow);">Specialty Items</span>
-        <h2 class="t-display-light">Sold by the Pound. <em>Gone Fast.</em></h2>
-        <p style="color:var(--drift);">Our signature items sell out every batch. Pre-order below and we'll notify you when the next run drops. No commitment until you confirm.</p>
+        <h2 class="t-display-light">Sold by the Bag. <em>Gone Fast.</em></h2>
+        <p style="color:var(--drift);">Our Pastelle Sausage sells out every batch in 24&ndash;72 hours. Reserve your bags from an upcoming run below &mdash; no payment now, just first come, first served.</p>
       </div>
 
-      <div class="spec-items">
-        <!-- Pastelle Sausage -->
-        <div class="spec-item reveal">
-          <div class="spec-item-img"><div class="img-placeholder img-placeholder-2" style="height:100%;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><path d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg></div></div>
-          <div class="spec-item-info">
-            <h3>Pastelle Sausage</h3>
-            <p>Ground fresh, seasoned by hand, stuffed into natural casings, and slow-smoked the traditional way. No liquid smoke. No filler. The real thing.</p>
-            <div class="spec-item-stats">
-              <span><strong>$20</strong> / 3 lb bag</span>
-              <span class="spec-item-badge">Sells out in 24-72 hrs</span>
-            </div>
-          </div>
+      <!-- ===== PASTELLE SAUSAGE — RESERVE A BATCH ===== -->
+      <div class="sausage-reserve reveal" id="sausageReserve">
+        <div class="sausage-reserve-info">
+          <span class="spec-item-badge">Sells out in 24&ndash;72 hrs</span>
+          <h3>Pastelle Sausage</h3>
+          <p>Ground fresh, seasoned by hand, stuffed into natural casings, and slow-smoked the traditional way. No liquid smoke. No filler. The real thing.</p>
+          <div class="sausage-price"><strong>$20</strong> <span>/ 3 lb bag</span></div>
         </div>
-
-        <!-- Signature Laulau -->
-        <div class="spec-item reveal reveal-d1">
-          <div class="spec-item-img"><div class="img-placeholder img-placeholder-1" style="height:100%;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><path d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg></div></div>
-          <div class="spec-item-info">
-            <h3>Signature Laulau</h3>
-            <p>Our signature take on a classic. Available in Pastelle and Kimchi styles. Wrapped and cooked the traditional way, full of flavor.</p>
-            <div class="spec-item-stats">
-              <span><strong>Market Price</strong> / by the pound</span>
-              <span class="spec-item-badge">Limited batches</span>
+        <div class="sausage-reserve-form">
+          <h4>Reserve Your Bags</h4>
+          <div class="field">
+            <label for="sBatch">Pick-Up Batch</label>
+            <select id="sBatch" onchange="updateSausageTotal()"></select>
+          </div>
+          <div class="field" id="sQtyField">
+            <label>How many 3 lb bags?</label>
+            <div class="qty-control">
+              <button type="button" onclick="adjustSausageQty(-1)">-</button>
+              <input type="number" id="sausageQty" value="1" min="1" max="20" oninput="updateSausageTotal()">
+              <button type="button" onclick="adjustSausageQty(1)">+</button>
             </div>
           </div>
+          <div class="sausage-total" id="sausageTotal"></div>
+          <div class="form-grid">
+            <div class="field"><label for="sName">Your Name</label><input type="text" id="sName" placeholder="Full name"></div>
+            <div class="field"><label for="sContact">Phone or Email</label><input type="text" id="sContact" placeholder="(808) 555-1234 or email"></div>
+          </div>
+          <div class="field" style="margin-top:1rem;"><label for="sNotes">Pickup notes (optional)</label><input type="text" id="sNotes" placeholder="e.g. afternoon pickup works best"></div>
+          <div style="text-align:center;margin-top:1.5rem;">
+            <button class="btn btn-fill" id="sausageBtn" onclick="submitSausage(this)" style="min-width:220px;justify-content:center;">Reserve My Bags</button>
+          </div>
+          <p class="preorder-note">No payment now &mdash; we&rsquo;ll text or email to confirm your batch and pickup. Bags are first come, first served.</p>
         </div>
       </div>
+      <div id="sausageDone" style="display:none;text-align:center;padding:2.5rem 2rem;background:rgba(250,248,245,0.03);border-radius:12px;border:1px solid rgba(192,133,69,0.18);margin-bottom:3rem;">
+        <div class="done-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg></div>
+        <h3 class="t-display-light" style="font-size:1.4rem;margin-bottom:0.5rem;" id="sausageDoneTitle">Bags reserved!</h3>
+        <p style="color:var(--drift);font-weight:300;" data-msg></p>
+      </div>
 
-      <!-- Pre-order form -->
+      <!-- ===== ALSO AVAILABLE: LAULAU WAITLIST ===== -->
+      <div class="section-head center reveal" style="margin-top:1rem;margin-bottom:2rem;">
+        <span class="t-label" style="color:var(--koa-glow);">Also Available</span>
+        <h2 class="t-display-light" style="font-size:clamp(1.5rem,3vw,2rem);">Signature Laulau</h2>
+        <p style="color:var(--drift);">Our take on a classic, in Pastelle and Kimchi styles &mdash; wrapped and cooked the traditional way. Limited batches at market price. Join the list and we&rsquo;ll reach out when the next run is ready.</p>
+      </div>
+
+      <!-- Laulau waitlist -->
       <div class="preorder-box reveal reveal-d2" id="preorderBox">
         <div class="preorder-head">
-          <h3>Get on the List</h3>
-          <p>Pick what you want and how much. When the next batch is ready, we'll reach out to confirm your order.</p>
+          <h3>Join the Laulau List</h3>
+          <p>Pick your style and how much. When the next batch is ready, we&rsquo;ll reach out to confirm your order.</p>
         </div>
         <div class="preorder-items">
-          <div class="preorder-item">
-            <label class="preorder-check">
-              <input type="checkbox" id="prePastelle" onchange="updatePreorder()">
-              <span class="preorder-check-box"></span>
-              <span class="preorder-check-label">Pastelle Sausage <span style="color:var(--koa-glow);font-size:0.85rem;font-weight:400;">($20 / 3 lb bag)</span></span>
-            </label>
-            <div class="preorder-qty" id="qtyPastelle" style="display:none;">
-              <label>How many bags?</label>
-              <div class="qty-control">
-                <button onclick="adjustQty('pastelle',-1)">-</button>
-                <input type="number" id="pastelleQty" value="1" min="1" max="20">
-                <button onclick="adjustQty('pastelle',1)">+</button>
-              </div>
-            </div>
-          </div>
           <div class="preorder-item">
             <label class="preorder-check">
               <input type="checkbox" id="preLaulauP" onchange="updatePreorder()">
@@ -897,11 +924,12 @@
           <div class="field"><label for="preContact">Phone or Email</label><input type="text" id="preContact" placeholder="(808) 555-1234 or email"></div>
         </div>
         <div style="text-align:center;margin-top:1.5rem;">
-          <button class="btn btn-fill" onclick="submitPreorder()" style="min-width:220px;justify-content:center;">Join the Waitlist</button>
+          <button class="btn btn-fill" onclick="submitPreorder(this)" style="min-width:220px;justify-content:center;">Join the Waitlist</button>
         </div>
         <p class="preorder-note">No commitment. We'll contact you when the next batch is ready so you can confirm.</p>
       </div>
-      <div id="preorderDone" style="display:none;text-align:center;padding:2rem;background:rgba(250,248,245,0.03);border-radius:12px;border:1px solid rgba(250,248,245,0.06);margin-top:2rem;">
+      <div id="preorderDone" style="display:none;text-align:center;padding:2.5rem 2rem;background:rgba(250,248,245,0.03);border-radius:12px;border:1px solid rgba(250,248,245,0.06);margin-top:2rem;">
+        <div class="done-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg></div>
         <h3 class="t-display-light" style="font-size:1.4rem;margin-bottom:0.5rem;">You're on the list!</h3>
         <p style="color:var(--drift);font-weight:300;">We'll reach out when the next batch is ready. Mahalo!</p>
       </div>
@@ -959,6 +987,27 @@
     const els = document.querySelectorAll('.reveal');
     const obs = new IntersectionObserver(entries => entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('vis'); obs.unobserve(e.target); } }), { threshold: 0.12, rootMargin: '0px 0px -30px 0px' });
     els.forEach(el => obs.observe(el));
+
+    // ===== BACKEND (Google Apps Script → Google Sheet) =====
+    // Paste your deployed Web App URL below (see SETUP-GOOGLE-SHEETS.md).
+    // Until it's set, both forms fall back to a pre-filled email so nothing is lost.
+    const GOOGLE_SHEET_URL = 'YOUR_GOOGLE_APPS_SCRIPT_URL_HERE';
+
+    function sendToGoogleSheet(data, onSuccess, onError) {
+      if (!GOOGLE_SHEET_URL || GOOGLE_SHEET_URL === 'YOUR_GOOGLE_APPS_SCRIPT_URL_HERE') {
+        console.log('[Papa N Toots] Sheet not configured yet — using email fallback.', data);
+        if (onError) onError(new Error('not_configured'));
+        return;
+      }
+      fetch(GOOGLE_SHEET_URL, {
+        method: 'POST',
+        mode: 'no-cors',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data)
+      })
+      .then(() => { if (onSuccess) onSuccess(); })
+      .catch(err => { console.error('Sheet submission error:', err); if (onError) onError(err); });
+    }
 
     // ===== ORDER BUILDER STATE =====
     let currentStep = 1;
@@ -1196,49 +1245,76 @@
     function prevStep() { if (currentStep > 1) goToStep(currentStep - 1); }
 
     // ===== SUBMIT =====
-    function submitOrder() {
-      const name = document.getElementById('oName').value;
-      const email = document.getElementById('oEmail').value;
-      if (!name || !email) { alert('Please enter your name and email.'); return; }
-
+    function buildOrderData() {
       const menu = MENUS[selectedMenu];
-      let body = 'CATERING INQUIRY\n\n';
-      body += 'Menu: ' + menu.name + '\n';
+      const lines = [];
       if (menu.custom) {
         ['entrees', 'sides', 'addons'].forEach(key => {
-          const label = key === 'entrees' ? 'Entrees' : key === 'sides' ? 'Sides/Starches' : 'Add-Ons';
+          const label = key === 'entrees' ? 'Entrées' : key === 'sides' ? 'Sides/Starches' : 'Add-Ons';
           const items = selections[key] || [];
-          if (items.length) body += label + ': ' + items.join(', ') + '\n';
+          if (items.length) lines.push(label + ': ' + items.join(', '));
         });
       } else {
-        menu.groups.forEach((g, gi) => { body += g.title + ': ' + (selections[gi] || []).join(', ') + '\n'; });
-        if (selections['addons'] && selections['addons'].length) body += 'Add-Ons: ' + selections['addons'].join(', ') + '\n';
+        menu.groups.forEach((g, gi) => { lines.push(g.title + ': ' + (selections[gi] || []).join(', ')); });
+        if (selections['addons'] && selections['addons'].length) lines.push('Add-Ons: ' + selections['addons'].join(', '));
       }
-      body += '\nDate: ' + (document.getElementById('oDate').value || 'TBD');
-      body += '\nGuests: ' + (document.getElementById('oGuests').value || 'TBD');
-      body += '\nEvent: ' + (document.getElementById('oEvent').value || 'TBD');
-      body += '\nLocation: ' + (document.getElementById('oLocation').value || 'TBD');
-      body += '\n\nNotes: ' + (document.getElementById('oNotes').value || 'None');
-      body += '\n\nName: ' + name;
-      body += '\nEmail: ' + email;
-      body += '\nPhone: ' + (document.getElementById('oPhone').value || 'N/A');
-      body += '\nPreferred Contact: ' + document.getElementById('oPrefer').value;
+      return {
+        formType: 'catering_inquiry',
+        timestamp: new Date().toLocaleString('en-US', { timeZone: 'Pacific/Honolulu' }),
+        name: document.getElementById('oName').value.trim(),
+        email: document.getElementById('oEmail').value.trim(),
+        phone: document.getElementById('oPhone').value.trim(),
+        contactMethod: document.getElementById('oPrefer').value,
+        menu: menu.name,
+        selections: lines.join('  |  '),
+        eventDate: document.getElementById('oDate').value,
+        eventType: document.getElementById('oEvent').value,
+        guests: document.getElementById('oGuests').value,
+        location: document.getElementById('oLocation').value.trim(),
+        notes: document.getElementById('oNotes').value.trim()
+      };
+    }
 
-      // Try Formspree, fallback to mailto
-      const subj = encodeURIComponent('Catering Inquiry - ' + menu.name + ' - ' + name);
-      const mailBody = encodeURIComponent(body);
-      window.location.href = 'mailto:papantoots@gmail.com?subject=' + subj + '&body=' + mailBody;
+    function orderMailtoFallback(d) {
+      let body = 'CATERING INQUIRY\n\n';
+      body += 'Menu: ' + d.menu + '\n';
+      body += d.selections.split('  |  ').join('\n') + '\n';
+      body += '\nDate: ' + (d.eventDate || 'TBD');
+      body += '\nGuests: ' + (d.guests || 'TBD');
+      body += '\nEvent: ' + (d.eventType || 'TBD');
+      body += '\nLocation: ' + (d.location || 'TBD');
+      body += '\n\nNotes: ' + (d.notes || 'None');
+      body += '\n\nName: ' + d.name + '\nEmail: ' + d.email;
+      body += '\nPhone: ' + (d.phone || 'N/A') + '\nPreferred Contact: ' + d.contactMethod;
+      const subj = encodeURIComponent('Catering Inquiry - ' + d.menu + ' - ' + d.name);
+      window.location.href = 'mailto:papantoots@gmail.com?subject=' + subj + '&body=' + encodeURIComponent(body);
+    }
 
-      // Show success
+    function showOrderDone() {
       document.querySelectorAll('.order-step').forEach(s => s.classList.remove('active'));
       document.getElementById('stepDone').classList.add('active');
       document.querySelector('.order-progress').style.display = 'none';
     }
 
+    function submitOrder() {
+      const name = document.getElementById('oName').value.trim();
+      const email = document.getElementById('oEmail').value.trim();
+      if (!name || !email) { alert('Please enter your name and email.'); return; }
+
+      const data = buildOrderData();
+      const btn = document.getElementById('submitBtn');
+      btn.disabled = true; btn.textContent = 'Sending…';
+
+      sendToGoogleSheet(
+        data,
+        () => showOrderDone(),
+        () => { orderMailtoFallback(data); showOrderDone(); }
+      );
+    }
+
     // ===== PRE-ORDER SYSTEM =====
     function updatePreorder() {
       const items = [
-        { check: 'prePastelle', qty: 'qtyPastelle' },
         { check: 'preLaulauP', qty: 'qtyLaulauP' },
         { check: 'preLaulauK', qty: 'qtyLaulauK' }
       ];
@@ -1255,29 +1331,159 @@
       input.value = val;
     }
 
-    function submitPreorder() {
-      const name = document.getElementById('preName').value;
-      const contact = document.getElementById('preContact').value;
+    function preorderMailtoFallback(d) {
+      let body = 'PRE-ORDER INTEREST\n\n';
+      body += 'Items:\n' + d.items.split('  |  ').join('\n') + '\n\n';
+      body += 'Name: ' + d.name + '\nContact: ' + d.contact;
+      const subj = encodeURIComponent('Pre-Order Interest - ' + d.name);
+      window.location.href = 'mailto:papantoots@gmail.com?subject=' + subj + '&body=' + encodeURIComponent(body);
+    }
+
+    function showPreorderDone() {
+      document.getElementById('preorderBox').style.display = 'none';
+      document.getElementById('preorderDone').style.display = 'block';
+    }
+
+    function submitPreorder(btn) {
+      const name = document.getElementById('preName').value.trim();
+      const contact = document.getElementById('preContact').value.trim();
       if (!name || !contact) { alert('Please enter your name and contact info.'); return; }
 
       let items = [];
-      if (document.getElementById('prePastelle').checked) items.push('Pastelle Sausage x' + document.getElementById('pastelleQty').value + ' bags');
       if (document.getElementById('preLaulauP').checked) items.push('Signature Laulau (Pastelle) ' + document.getElementById('laulaupQty').value + ' lbs');
       if (document.getElementById('preLaulauK').checked) items.push('Signature Laulau (Kimchi) ' + document.getElementById('laulaukqQty').value + ' lbs');
 
       if (!items.length) { alert('Please select at least one item.'); return; }
 
-      let body = 'PRE-ORDER INTEREST\n\n';
-      body += 'Items:\n' + items.join('\n') + '\n\n';
-      body += 'Name: ' + name + '\nContact: ' + contact;
+      const data = {
+        formType: 'preorder',
+        timestamp: new Date().toLocaleString('en-US', { timeZone: 'Pacific/Honolulu' }),
+        name: name,
+        contact: contact,
+        items: items.join('  |  ')
+      };
+      btn.disabled = true; btn.textContent = 'Joining…';
 
-      const subj = encodeURIComponent('Pre-Order Interest - ' + name);
-      const mailBody = encodeURIComponent(body);
-      window.location.href = 'mailto:papantoots@gmail.com?subject=' + subj + '&body=' + mailBody;
-
-      document.getElementById('preorderBox').style.display = 'none';
-      document.getElementById('preorderDone').style.display = 'block';
+      sendToGoogleSheet(
+        data,
+        () => showPreorderDone(),
+        () => { preorderMailtoFallback(data); showPreorderDone(); }
+      );
     }
+
+    // ===== PASTELLE SAUSAGE — RESERVE A BATCH =====
+    // EDIT YOUR UPCOMING BATCHES HERE.
+    //   label  : what customers see (date + pickup spot)
+    //   status : 'open' (reservable) or 'soldout' (shown greyed out)
+    // Remove past dates after each run. The "notify me" option is added automatically.
+    const SAUSAGE_BATCHES = [
+      { label: 'Sat, Jun 14 · Keaʻau pickup', status: 'open' },
+      { label: 'Sat, Jun 28 · Keaʻau pickup', status: 'open' },
+      { label: 'Sat, Jul 12 · Keaʻau pickup', status: 'open' }
+    ];
+    const SAUSAGE_PRICE = 20; // per 3 lb bag
+    const NOTIFY_VALUE = '__notify__';
+
+    function initSausageBatches() {
+      const sel = document.getElementById('sBatch');
+      if (!sel) return;
+      sel.innerHTML = '';
+      const open = SAUSAGE_BATCHES.filter(b => b.status === 'open');
+      open.forEach(b => {
+        const o = document.createElement('option');
+        o.value = b.label; o.textContent = b.label;
+        sel.appendChild(o);
+      });
+      SAUSAGE_BATCHES.filter(b => b.status === 'soldout').forEach(b => {
+        const o = document.createElement('option');
+        o.value = b.label; o.textContent = b.label + ' — Sold Out'; o.disabled = true;
+        sel.appendChild(o);
+      });
+      const n = document.createElement('option');
+      n.value = NOTIFY_VALUE;
+      n.textContent = open.length ? 'Or: notify me of future batches' : 'No open batches right now — notify me when the next drops';
+      sel.appendChild(n);
+      if (!open.length) n.selected = true;
+      updateSausageTotal();
+    }
+
+    function isNotifyBatch() {
+      const sel = document.getElementById('sBatch');
+      return !sel || sel.value === NOTIFY_VALUE;
+    }
+
+    function adjustSausageQty(delta) {
+      const input = document.getElementById('sausageQty');
+      let val = parseInt(input.value) || 1;
+      val = Math.max(1, Math.min(20, val + delta));
+      input.value = val;
+      updateSausageTotal();
+    }
+
+    function updateSausageTotal() {
+      const totalEl = document.getElementById('sausageTotal');
+      const qtyField = document.getElementById('sQtyField');
+      if (!totalEl) return;
+      if (isNotifyBatch()) {
+        qtyField.style.display = 'none';
+        totalEl.innerHTML = 'We&rsquo;ll text or email you the moment the next batch is ready &mdash; no commitment.';
+      } else {
+        qtyField.style.display = 'flex';
+        const qty = parseInt(document.getElementById('sausageQty').value) || 1;
+        const total = qty * SAUSAGE_PRICE;
+        totalEl.innerHTML = 'Estimated total: <strong>$' + total + '</strong> <span>· ' + qty + ' bag' + (qty > 1 ? 's' : '') + ' × $' + SAUSAGE_PRICE + ' · pay at pickup</span>';
+      }
+    }
+
+    function sausageMailtoFallback(d) {
+      let body = 'PASTELLE SAUSAGE PRE-ORDER\n\n';
+      body += 'Batch: ' + d.batch + '\n';
+      if (d.bags) body += 'Bags (3 lb): ' + d.bags + '\n';
+      if (d.estimatedTotal) body += 'Estimated total: ' + d.estimatedTotal + ' (pay at pickup)\n';
+      body += '\nName: ' + d.name + '\nContact: ' + d.contact;
+      if (d.notes) body += '\nNotes: ' + d.notes;
+      const subj = encodeURIComponent('Pastelle Sausage Pre-Order - ' + d.name);
+      window.location.href = 'mailto:papantoots@gmail.com?subject=' + subj + '&body=' + encodeURIComponent(body);
+    }
+
+    function showSausageDone(notify) {
+      document.getElementById('sausageReserve').style.display = 'none';
+      const done = document.getElementById('sausageDone');
+      document.getElementById('sausageDoneTitle').textContent = notify ? "You're on the list!" : 'Bags reserved!';
+      done.querySelector('[data-msg]').textContent = notify
+        ? "We'll reach out the moment the next batch is ready. Mahalo!"
+        : "We'll text or email to confirm your batch and pickup. Mahalo!";
+      done.style.display = 'block';
+      done.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }
+
+    function submitSausage(btn) {
+      const name = document.getElementById('sName').value.trim();
+      const contact = document.getElementById('sContact').value.trim();
+      if (!name || !contact) { alert('Please enter your name and contact info.'); return; }
+
+      const notify = isNotifyBatch();
+      const qty = parseInt(document.getElementById('sausageQty').value) || 1;
+      const data = {
+        formType: 'sausage_preorder',
+        timestamp: new Date().toLocaleString('en-US', { timeZone: 'Pacific/Honolulu' }),
+        name: name,
+        contact: contact,
+        batch: notify ? 'Notify list (future batch)' : document.getElementById('sBatch').value,
+        bags: notify ? '' : String(qty),
+        estimatedTotal: notify ? '' : '$' + (qty * SAUSAGE_PRICE),
+        notes: document.getElementById('sNotes').value.trim()
+      };
+      btn.disabled = true; btn.textContent = notify ? 'Joining…' : 'Reserving…';
+
+      sendToGoogleSheet(
+        data,
+        () => showSausageDone(notify),
+        () => { sausageMailtoFallback(data); showSausageDone(notify); }
+      );
+    }
+
+    initSausageBatches();
   </script>
 </body>
 </html>
